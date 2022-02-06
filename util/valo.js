@@ -1,4 +1,4 @@
-const { RiotApiClient, Region } = require("valorant.js");
+const { RiotApiClient, Region, Locale } = require("@survfate/valorant.js");
 const fetch = require("node-fetch");
 
 function getClient(username, password, shard = "AP") {
@@ -20,7 +20,8 @@ async function getSkins(valorant) {
 
     const { skins, bonus } = await valorant.storeApi.getStorefront(
       valorant.user.Subject,
-      true
+      true,
+      process.env.CONTENT_LOCALE || 'en-US',
     );
     const { Identity } = await valorant.playerApi.getInventory(
       user.user.Subject
