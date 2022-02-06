@@ -27,7 +27,7 @@ RUN addgroup -S pptruser && adduser -S -g pptruser pptruser \
 # Clone source code and install dependencies
 RUN apk add git
 WORKDIR /home/node
-RUN git clone https://github.com/survfate/valo-store-bot.git && cd valo-store-bot && git checkout discordjs13
+RUN git clone https://github.com/survfate/valo-store-bot.git && cd valo-store-bot
 WORKDIR /home/node/valo-store-bot
 RUN npm install
 #RUN npm audit fix

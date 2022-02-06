@@ -19,7 +19,7 @@ A simple Discord bot that retrieves the skins on sale in one’s Valorant store.
    CONTENT_LOCALE = "the_content_locale_string"
    EMBED_FOOTER = "your_custom_embed_footer_string"
    ```
-   (Available locales: "ar-AE", "de-DE", "en-US", "es-ES", "es-MX", "fr-FR", "id-ID", "it-IT", "ja-JP", "ko-KR", "pl-PL", "pt-BR", "ru-RU", "th-TH", "tr-TR", "vi-VN", "zh-CN", "zh-TW")
+   (Available locales: `"ar-AE", "de-DE", "en-US", "es-ES", "es-MX", "fr-FR", "id-ID", "it-IT", "ja-JP", "ko-KR", "pl-PL", "pt-BR", "ru-RU", "th-TH", "tr-TR", "vi-VN", "zh-CN", "zh-TW"`)
 
 * Add Docker deploy option:
 
