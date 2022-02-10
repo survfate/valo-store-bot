@@ -37,10 +37,10 @@
   "resolved" "https://registry.npmjs.org/@sindresorhus/is/-/is-4.2.0.tgz"
   "version" "4.2.0"
 
-"@survfate/valorant.js@^1.6.7":
-  "integrity" "sha512-ci4OZmbo1wGi/TzmAqMfWSiBoDVo0eJMCnQY4TJSYxhrrwpEsfrmWqJDw719nnZMGvBJvu0ib++PMeIG+1fcEw=="
-  "resolved" "https://registry.npmjs.org/@survfate/valorant.js/-/valorant.js-1.6.7.tgz"
-  "version" "1.6.7"
+"@survfate/valorant.js@^1.6.10":
+  "integrity" "sha512-86P0rsMm9LsovhlNGUhOmK8y8JOrKN7ukuWujDUiEyJ2evhj80iJT46G+LYyISZdnbCIoD7nwBth/UORoq0Q+g=="
+  "resolved" "https://registry.npmjs.org/@survfate/valorant.js/-/valorant.js-1.6.10.tgz"
+  "version" "1.6.10"
   dependencies:
     "@types/tough-cookie" "^4.0.0"
     "axios" "^0.25.0"
