@@ -16,7 +16,7 @@
     "dotenv": "^8.2.0",
     "mongoose": "^5.12.7",
     "node-fetch": "^2.6.7",
-    "@tcortega/node-html-to-image": "^3.2.2",
+    "node-html-to-image": "^3.2.3",
     "@survfate/valorant.js": "^1.6.10"
   },
   "devDependencies": {

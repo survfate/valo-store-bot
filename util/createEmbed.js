@@ -1,5 +1,5 @@
 const { MessageEmbed, MessageAttachment } = require("discord.js");
-const nodeHtmlToImage = require("@tcortega/node-html-to-image");
+const nodeHtmlToImage = require("node-html-to-image");
 
 const puppeteer_minimal_args = [
   "--autoplay-policy=user-gesture-required",
