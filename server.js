@@ -133,7 +133,7 @@ client.on("messageCreate", async (message) => {
           await getSkins(valorant);
         if (!bonus.length) {
           waitMessage.delete();
-          return message.reply(messageWithoutMetions("There is no Night Market going on at this moment, save your money!"));
+          return message.reply(messageWithoutMetions("There is no Night Market going on at this moment!"));
         }
         const messageWithEmbeddedImage = await generateMarketEmbedMessage(
           {
