@@ -3,14 +3,10 @@
 A simple Discord bot that retrieves the skins on sale in one’s Valorant store. Forked from https://github.com/sudhxnva/valo-store-bot
 
 ## Fork Update:
->* Migrated to `Discord.js v13`
->* Change `valorant.js` to use my forked package (`@survfate/valorant.js`) instead, you can view the source here: https://github.com/survfate/valorant.js
->* Added Night Market for the bot:
->`!market` command on a server to retrieve the current Night Market. 
->![image](https://user-images.githubusercontent.com/10634948/145446609-f8474337-a6a9-4940-bd78-83065aba545a.png)
->* Add support for CONTENT_LOCALE & EMBED_FOOTER to the `.env`
-
-* **WIP**: Have the bot auto DM your `!store` output daily to you 
+* Added Night Market check feature for the bot
+* Migrated to `Discord.js v13`
+* Change `valorant.js` to use my forked package (`@survfate/valorant.js`) instead, you can view the source here: https://github.com/survfate/valorant.js
+* Add support for CONTENT_LOCALE & EMBED_FOOTER to the `.env`
 
 ## Setup
 
@@ -59,7 +55,7 @@ A simple Discord bot that retrieves the skins on sale in one’s Valorant store.
          - mongo
       restart: unless-stopped
    ```
-2. Start both the mongo and the bot containers in a detach mode with `docker compose up -d`
+2. Start both the MongoDB and the bot containers in detach mode with `docker compose up -d`
 
 ## Docker deploy option:
 
@@ -67,19 +63,37 @@ A simple Discord bot that retrieves the skins on sale in one’s Valorant store.
 2. Download the `Dockerfile` into your location of choice that already contained the `.env` file (check the below section), `cd` into that path
 3. Run `docker build -t valostorebot .` to build a local Docker image of the bot
 4. Add `DB_URL = "mongodb://mongo:27017/valostorebot"` to the `.env` file, this make the bot container able to see and connect to the MongoDB docker instance
-5. Start the bot container in a detach mode with `docker run --restart unless-stopped --name valostorebot -d -p 8844:3000 -v $(pwd)/.env:/home/node/valo-store-bot/.env --link valo-mongo:mongo valostorebot`
+5. Start the bot container in detach mode with `docker run --restart unless-stopped --name valostorebot -d -p 8844:3000 -v $(pwd)/.env:/home/node/valo-store-bot/.env --link valo-mongo:mongo valostorebot`
+
+## Backup & Restore MongoDB Docker container
+
+* For Backup:
+```
+docker exec -i valo-mongo /usr/bin/mongodump --db valostorebot --out /dump
+docker cp valo-mongo:/dump ./dump
+```
+(the `./dump` directory then can be restored with the below commands)
+
+* For Restore:
+```
+docker exec -i valo-mongo /usr/bin/mongorestore ./dump
+```
 
 ## Usage
 
 `!store` command on a server to retrieve the store. 
 
-![image](https://user-images.githubusercontent.com/57023357/123987548-ea345080-d9e4-11eb-9b1a-3bc9bbe97d0d.png)
+![screenshot-discord com-2023 01 02-01_30_28](https://user-images.githubusercontent.com/10634948/210181719-0f836bd1-6440-4c69-8353-1f565cbc4678.png)
+
+`!market` command on a server to retrieve the current Night Market.
+
+![screenshot-discord com-2023 01 02-01_32_11](https://user-images.githubusercontent.com/10634948/210181628-6d4b1096-7a2e-4b0e-9dcd-aa0cb066c9a7.png)
 
 If a user is calling the command for the first time, they will be prompted to enter their details on a Discord DM chat with the bot.
 
-![image-20210505160637182](https://user-images.githubusercontent.com/57023357/117132364-641ed380-adc0-11eb-8612-f3a34097924f.png)
+![screenshot-discord com-2023 01 02-01_47_21](https://user-images.githubusercontent.com/10634948/210181727-82b95d88-747b-4d37-a4bc-8dfac698f6f0.png)
 
-![image-20210505160734269](https://user-images.githubusercontent.com/57023357/117132413-726cef80-adc0-11eb-8360-94bacfa2a044.png)
+![screenshot-discord com-2023 01 02-01_35_21](https://user-images.githubusercontent.com/10634948/210181737-4291aaaf-5032-43e2-8703-85a19b15ba96.png)
 
 Once registered, the user will not have to enter their details again. The `!store` command should work smoothly.
 
